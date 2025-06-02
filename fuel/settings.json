@@ -1,0 +1,11 @@
+{
+    "python.defaultInterpreterPath": "/home/sra/fuel/venv/bin/python",
+    "python.envFile": "${workspaceFolder}/.env", // Optional, but good practice for other env vars
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/venv/lib/python3.10/site-packages:${env:PYTHONPATH}"
+    },
+    "jupyter.kernels.args": [
+        "--JupyterLabApp.tornado_settings={'headers':{'X-Content-Type-Options': 'nosniff'}}"
+    ],
+    "jupyter.defaultInterpreterPath": "/home/sra/fuel/venv/bin/python"
+}
