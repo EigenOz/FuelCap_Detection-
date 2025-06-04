@@ -35,20 +35,13 @@ This repository contains all the necessary code, datasets, training configuratio
 
 ### 1. Project Overview
 
-This project focuses on developing a deep learning model for automated fuel cap detection. The primary goal is to accurately locate and classify fuel caps in images or video streams, which can be critical for applications such as:
-
-* Automated vehicle inspection systems.
-* Robotic refueling.
-* Quality control in manufacturing.
-* Safety monitoring.
-
-We leverage state-of-the-art object detection architectures (specifically YOLOv8/YOLOv11 via the `ultralytics` framework) to achieve high accuracy and inference speed.
+This project focuses on developing a deep learning model for automated fuel cap detection. The primary goal is to accurately locate  fuel caps in images and video streams, locate the centroid (coordinates) of the bounding box and give this information to the robotic arm:
 
 ---
 
 ### 2. Features
 
-* **Robust Fuel Cap Detection:** Utilizes advanced YOLO models for precise localization.
+* **Robust Fuel Cap Detection:** Utilizes advanced YOLO models & Transformer models for precise localization.
 * **GPU Accelerated:** Optimized for NVIDIA GPUs using PyTorch and CUDA for fast training and inference.
 * **Custom Dataset:** Trained on a curated dataset of fuel caps in diverse scenarios.
 * **Modular Codebase:** Easy to understand, modify, and extend for future enhancements.
@@ -207,25 +200,12 @@ The dataset follows the YOLO format for object detection, with image files and c
 
 *(Briefly describe your dataset's origin and how it was created/annotated.)*
 
-The dataset was curated from various sources including [mention sources, e.g., real-world captures, online repositories, synthetic data]. Annotation was performed using [mention tool, e.g., LabelImg, Roboflow, CVAT] to mark fuel cap locations. The dataset consists of approximately [X] training images, [Y] validation images, and [Z] test images.
+The dataset was curated from various sources including [mention sources, e.g., real-world captures, synthetic data]. Annotation was performed using [ Roboflow, GIMP] to mark fuel cap locations. The dataset consists of approximately [4000] training images, [1500] validation images, and [500] test images.
 
 ---
 
 ### 5. Model Training
 
-This project utilizes the `ultralytics` library for training YOLO models.
+This project utilizes the `ultralytics` library for training YOLO models & `facebook DETR` from pytorch 
 
-#### Configuration
 
-Training parameters are defined either directly in the training script or via a YAML configuration file. An example `model_config.yaml` might look like:
-
-```yaml
-# model_config.yaml
-model: yolov8n.pt # or yolov8m.pt, yolov8l.pt, yolov11m.pt etc.
-data: data/fuel_cap_data.yaml
-epochs: 100
-imgsz: 640
-batch: 16
-name: fuel_cap_run_v1
-device: 0 # Use GPU device 0
-# ... other training parameters
