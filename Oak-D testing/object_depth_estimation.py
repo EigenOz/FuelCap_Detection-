@@ -2,14 +2,13 @@ import cv2
 import depthai as dai
 import math
 from typing import List
-from ultralytics import YOLO  # Your v11 model here
+from ultralytics import YOLO  
 
-# ---- Constants ----
+
 LENS_STEP = 3
 DEBUG = True
 MODEL_PATH = "/home/abhinav/fuel/yolo_trained_weights/best_v11.pt"  # Replace this with actual path
 
-# ---- Utility Classes ----
 
 class TextHelper:
     def __init__(self):
@@ -48,7 +47,7 @@ class HostSync:
             return synced
         return False
 
-# ---- Functions ----
+
 
 def calculate_distance(coords):
     return math.sqrt(coords.x ** 2 + coords.y ** 2 + coords.z ** 2)
@@ -98,7 +97,6 @@ def create_pipeline():
 
     return pipeline
 
-# ---- Main Execution ----
 
 model = YOLO(MODEL_PATH)
 
