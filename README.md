@@ -142,48 +142,6 @@ It is highly recommended to use a Python virtual environment (`venv`) to manage 
     * **Reload VS Code (`Ctrl+Shift+P` -> `Developer: Reload Window`).**
     * In your Jupyter Notebook, **select "Fuel Cap Detection VEnv"** from the kernel dropdown in the top-right.
 
-#### Data Preparation
-
-*(This section will depend on how you store/access your dataset. Assuming you have a `data` directory.)*
-
-1.  **Download / Place Dataset:**
-    * Ensure your annotated dataset is placed in the `data/` directory. The expected structure is typically:
-        ```
-        data/
-        ├── images/
-        │   ├── train/
-        │   │   ├── img1.jpg
-        │   │   └── ...
-        │   ├── val/
-        │   │   └── ...
-        │   └── test/
-        │       └── ...
-        └── labels/
-            ├── train/
-            │   ├── img1.txt
-            │   └── ...
-            ├── val/
-            │   └── ...
-            └── test/
-                └── ...
-        ```
-    * (If using a public dataset, provide download instructions/links here.)
-    * (If your dataset is private, mention how others can request access or that it's not publicly available).
-
-2.  **YAML Configuration:**
-    * A `data.yaml` file (e.g., `data/fuel_cap_data.yaml`) is required for `ultralytics` to specify dataset paths, number of classes, and class names. An example structure:
-        ```yaml
-        # fuel_cap_data.yaml
-        train: ../data/images/train
-        val: ../data/images/val
-        test: ../data/images/test # Optional
-
-        # number of classes
-        nc: 1
-
-        # class names
-        names: ['fuel_cap']
-        ```
 
 ---
 
@@ -195,12 +153,13 @@ The dataset follows the YOLO format for object detection, with image files and c
 
 * `images/train`, `images/val`, `images/test`: Contain the raw image files (e.g., `.jpg`, `.png`).
 * `labels/train`, `labels/val`, `labels/test`: Contain the YOLO-format annotation files (`.txt`), where each line represents an object: `class_id center_x center_y width height` (normalized to image dimensions).
+* The deTR model has a strcuture of images + .annotations file (responsible for storing corresponding labels). 
 
 #### Acquisition and Annotation
 
-*(Briefly describe your dataset's origin and how it was created/annotated.)*
-
-The dataset was curated from various sources including [mention sources, e.g., real-world captures, synthetic data]. Annotation was performed using [ Roboflow, GIMP] to mark fuel cap locations. The dataset consists of approximately [4000] training images, [1500] validation images, and [500] test images.
+https://app.roboflow.com/fuel-capflapinlet/equal_split_dataset/ -> 
+- v1 has equal split (pure detaset)
+- v2 has augmented equal split (augmented to 15000k images)
 
 ---
 
