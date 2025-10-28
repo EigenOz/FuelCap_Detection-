@@ -18,18 +18,7 @@ This repository contains all the necessary code, datasets, training configuratio
     * [Structure](#structure)
     * [Acquisition and Annotation](#acquisition-and-annotation)
 5.  [Model Training](#model-training)
-    * [Configuration](#configuration)
-    * [Training Commands](#training-commands)
-6.  [Inference and Evaluation](#inference-and-evaluation)
-    * [Running Inference](#running-inference)
-    * [Evaluation Metrics](#evaluation-metrics)
-7.  [Results](#results)
-8.  [Deployment (Optional)](#deployment-optional)
-9.  [Project Structure](#project-structure)
-10. [Troubleshooting](#troubleshooting)
-11. [Contributing](#contributing)
-12. [License](#license)
-13. [Contact](#contact)
+
 
 ---
 
